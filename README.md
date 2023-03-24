@@ -16,8 +16,8 @@ At the time of prediction(when outage happens), we are able to know the start ti
     - For a linear regression model, we can use one of two common metrics to assess the performance of our prediction model, R<sup>2</sup> and RMSE. Both are equally valid metrics, but RMSE is often hard to interpret in relation to the original data. We choose R<sup>2</sup> as the metric to evaluate our model because it is a direct and easy-to-understand measure of how well our prediction fits the response data, ranging between [0,1], with a higher value corresponding to a higher accuracy. 
 
 The following DataFrame is the first ten row of cleaned outage data for the use of ML model
-Most of the cleaning process is the same from EDA part
-The additional cleaning step here is that we remove the outlier of OUTAGE.DURATION by only preserving the first 99% quantile of duration data in our DataFrame
+
+Most of the cleaning process is from EDA part. The additional cleaning step here is that we remove the outlier of OUTAGE.DURATION by only preserving the first 99% quantile of duration data in our DataFrame
 
 |   YEAR |   MONTH | U.S._STATE   | NERC.REGION   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.START.TIME   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |
 |-------:|--------:|:-------------|:--------------|:-------------------|----------------:|:-------------------|:--------------------|:--------------------|:-------------------|:------------------------|------------------:|------------------:|-----------------:|---------------------:|
@@ -34,16 +34,15 @@ The additional cleaning step here is that we remove the outlier of OUTAGE.DURATI
 
 
 # Baseline Model
-Our baseline model employs basic linear regression on features derived from onehot encoded categorical data, which are the 'MONTH', 'NERC.REGION', 'CAUSE.CATEGORY' columns in our cleaned dataset. Although the 'MONTH' column contains all integers, we use it as a ordinal categorical variable, while the 'NERC.REGION' and 'CAUSE.CATEGORY' colummns are nominal categorical values. These three columns showed the most representative information about outage duration during our EDA phase, and the easiest way to implement these variables is to pass them through a sklearn OneHotEncoder() transformer. 
+Our baseline model employs basic <u>linear regression</u> on features derived from **onehot encoded** categorical data, which are the **'MONTH', 'NERC.REGION', 'CAUSE.CATEGORY'** columns in our cleaned dataset. Although the 'MONTH' column contains all integers, we use it as a ordinal categorical variable, while the 'NERC.REGION' and 'CAUSE.CATEGORY' colummns are nominal categorical values. These three columns showed the most representative information about outage duration during our EDA phase, and the easiest way to implement these variables is to pass them through a sklearn OneHotEncoder() transformer. 
 
-Our baseline model performs with an average R^2 score of 0.28 for our training data and 0.23 for our testing data. With only encoding three columns, this result isn't too bad. However, it could be seen that our model's predictions aren't aligning well with the actual durations, with only around one-fourth of the variation explained by our model's regression. This model still needs significant improvement to achieve useful prediction accuracy.
+Our baseline model performs with an average R<sup>2</sup> score of 0.28 for our training data and <u>0.23 for our testing data</u>. With only encoding three columns, this result isn't too bad. However, it could be seen that our model's predictions aren't aligning well with the actual durations, with only around one-fourth of the variation explained by our model's regression. This model still needs significant improvement to achieve useful prediction accuracy.
 
 
 
 
 # Final Model
-### Features 
-**MONTH, NERC.REGION, CAUSE.CATEGORY, OUTAGE.START.DATE,CLIMATE.REGION, CLIMATE.CATEGORY,HURRICANE.NAMES**
+Features **MONTH, NERC.REGION, CAUSE.CATEGORY, OUTAGE.START.DATE,CLIMATE.REGION, CLIMATE.CATEGORY,HURRICANE.NAMES**
 
 
 
