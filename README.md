@@ -49,3 +49,7 @@ Features **MONTH, NERC.REGION, CAUSE.CATEGORY, OUTAGE.START.DATE,CLIMATE.REGION,
 
 
 # Fairness Analysis
+
+
+
+<iframe src="assets/permu_test.html" width=800 height=600 frameBorder=0></iframe>
