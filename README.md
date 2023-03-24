@@ -69,7 +69,7 @@ In the end, our final linear regression model's testing score has improved by ab
 
 
 # Fairness Analysis
-#### Does our final model performs better/worse for the west coast or east coast of U.S.?
+### Does our final model performs better/worse for the west coast or east coast of U.S.?
 More specifically, comparing model's prediction performance from states that have CLIMATE.REGION classified as Northeast or West. A fair model should perform equally good on different groups. In our case, it means if our final linear regression model is fair enough, it should result in same or close R<sup>2</sup> score for different regions (states in the West and states in the Northeast). To compare R<sup>2</sup> across two regions, we conduct a permutation test.
 
 **Group X and Group Y:** Northeast and West in CLIMATE.REGION
