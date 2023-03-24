@@ -1,4 +1,4 @@
-# Power-Outage-ML-Model-Building
+# Power-Outage-Prediction-Model
 **by David Sun & Yijun Luo**
 
 
