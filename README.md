@@ -1,6 +1,7 @@
 # Power Outage Duration Prediction
 **by David Sun & Yijun Luo**
 
+>The Data Analysis Part of Power Outage dataset is [here](https://jackkkkkkdzk.github.io/Power-Outage-Investigation/).
 
 # Framing the Problem
 When power outages happen, what citizens care most about is how long the outage is going to last, and when can they expect the power to be restored. Knowing the rough duration of a power outage according to known variables woudl allow impacted citizens to make better use of the time instead of waiting anxiously. This make the prediction of power outage duration a very meaningful task. We are trying to build a machine learning model that best predicts the duration of power outages. 
@@ -15,6 +16,8 @@ At the time of prediction(when outage happens), we are able to know the start ti
     - For a linear regression model, we can use one of two common metrics to assess the performance of our prediction model, R<sup>2</sup> and RMSE. Both are equally valid metrics, but RMSE is often hard to interpret in relation to the original data. We choose R<sup>2</sup> as the metric to evaluate our model because it is a direct and easy-to-understand measure of how well our prediction fits the response data, ranging between [0,1], with a higher value corresponding to a higher accuracy. 
 
 The following DataFrame is the first ten row of cleaned outage data for the use of ML model
+Most of the cleaning process is the same from EDA part
+The additional cleaning step here is that we remove the outlier of OUTAGE.DURATION by only preserving the first 99% quantile of duration data in our DataFrame
 
 |   YEAR |   MONTH | U.S._STATE   | NERC.REGION   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.START.TIME   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   DEMAND.LOSS.MW |   CUSTOMERS.AFFECTED |
 |-------:|--------:|:-------------|:--------------|:-------------------|----------------:|:-------------------|:--------------------|:--------------------|:-------------------|:------------------------|------------------:|------------------:|-----------------:|---------------------:|
@@ -31,14 +34,9 @@ The following DataFrame is the first ten row of cleaned outage data for the use 
 
 
 # Baseline Model
-### Linear Regression Model 1.0
-We used a scikit-learn LinearRegression() model with features including **CAUSE.CATEGORY, MONTH, NERC.REGION**
-including how many are quantitative, ordinal, and nominal, 
+Our baseline model employs basic linear regression on features derived from onehot encoded categorical data, which are the 'MONTH', 'NERC.REGION', 'CAUSE.CATEGORY' columns in our cleaned dataset. Although the 'MONTH' column contains all integers, we use it as a ordinal categorical variable, while the 'NERC.REGION' and 'CAUSE.CATEGORY' colummns are nominal categorical values. These three columns showed the most representative information about outage duration during our EDA phase, and the easiest way to implement these variables is to pass them through a sklearn OneHotEncoder() transformer. 
 
-### Encoding and Transformation
-
-### Performance
-Report the performance of your model and whether or not you believe your current model is “good” and why.
+Our baseline model performs with an average R^2 score of 0.28 for our training data and 0.23 for our testing data. With only encoding three columns, this result isn't too bad. However, it could be seen that our model's predictions aren't aligning well with the actual durations, with only around one-fourth of the variation explained by our model's regression. This model still needs significant improvement to achieve useful prediction accuracy.
 
 
 
