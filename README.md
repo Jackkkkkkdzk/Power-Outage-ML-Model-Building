@@ -8,7 +8,10 @@ When power outage happens, what citizens care most about is how long the outage 
 - Prediction Problem: How long will a power outage last?
 - Type: Regression
 - Reponse variable: OUTAGE.DURATION
-- Metric: $R^2$
+- Metric: $R^2$ R<sup>2</sup> R^2^
+
+The reason we choose OUTAGE.DURATION as the response variable it corresponds to out prediction problem.
+The reason we choose R 
 
 
 
