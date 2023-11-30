@@ -1,7 +1,7 @@
 # Power Outage Duration Prediction
 **by David Sun & Yijun Luo**
 
->Our Data Analysis on this Power Outage dataset can be found [here](https://jackkkkkkdzk.github.io/Power-Outage-Investigation/).
+>Our Data Analysis on this Power Outage dataset can be found [here](https://jackyijun.github.io/Power-Outage-Investigation/).
 
 # Framing the Problem
 When power outages happen, what citizens care most about is how long the outage is going to last, and when can they expect the power to be restored. Knowing the rough duration of a power outage according to known variables woudl allow impacted citizens to make better use of the time instead of waiting anxiously. This make the prediction of power outage duration a very meaningful task. We are trying to build a machine learning model that best predicts the duration of power outages. 
